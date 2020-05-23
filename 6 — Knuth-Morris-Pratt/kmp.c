@@ -26,16 +26,17 @@ char *read_text(int *dim)
 
 
 int main() {
-    int n, m;
+    int n, m, *LSP, j = 0;
+    char *text, pattern;
 
     printf("Insert text: ");
-    char *text = read_text(&n);
+    text = read_text(&n);
 
     printf("Insert pattern: ");
-    char *pattern = read_text(&m);
+    pattern = read_text(&m);
 
     /* Build LSP */
-    int *LSP = calloc(m, sizeof(int)), j = 0;
+    LSP = calloc(m, sizeof(int));
     LSP[0] = 0;
 
     for (int i = 1; i < m; i++) {
