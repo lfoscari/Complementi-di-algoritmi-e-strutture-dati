@@ -27,7 +27,7 @@ char *read_text(int *dim)
 
 int main() {
     int n, m, *LSP, j = 0;
-    char *text, pattern;
+    char *text, *pattern;
 
     printf("Insert text: ");
     text = read_text(&n);
