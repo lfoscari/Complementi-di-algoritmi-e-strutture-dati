@@ -5,7 +5,7 @@
 char *read_text(int *dim)
 {
 	int size = 2, i = 0;
-	char *s = malloc(size * sizeof(char)), t;
+	char *s = calloc(size, sizeof(char)), t;
 
 	while(( t = getchar() ) != '\n') {
 		if(t > 126 || t < 33)
