@@ -2,6 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 
+/* Reads a string from stdin and returns a pointer,
+ * Stores the string length in dim
+ */
 char *read_text(int *dim)
 {
 	int size = 2, i = 0;
@@ -40,11 +43,11 @@ int main(int argvc, char **argv)
 	printf("Modulo [%d]: ", m);
 	scanf(" %d", &q);
 
-    // d^(m - 1)
-    for(int i = 0; i < m - 1; i++)
-        h = ( h * d ) % q;
+	// d^(m - 1)
+	for(int i = 0; i < m - 1; i++)
+		h = ( h * d ) % q;
 
-    // Compute initial hash
+	// Compute initial hash
 	for(int i = 0; i < m; i++) {
 		p = ( d * p + pattern[i] ) % q;
 		t = ( d * t + text[i] ) % q;
@@ -52,16 +55,16 @@ int main(int argvc, char **argv)
 
 	for(int s = 0; s <= n - m; s++) {
 		if(p == t) {
-            int i;
-            for(i = 0; i < m && text[s + i] != pattern[i]; i++);
-            if(i >= m)
-                printf("Match at offset %d\n", s);
-        }
+			int i;
+			for(i = 0; i < m && text[s + i] != pattern[i]; i++);
+			if(i >= m)
+				printf("Match at offset %d\n", s);
+		}
 		if(s < n - m) {
 			t = ( ( t - h * text[s] ) * d + text[s + m] ) % q;
-		    if(t < 0)
-			    t += q;
-        }
+			if(t < 0)
+				t += q;
+		}
 	}
 
 	return 0;

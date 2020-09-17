@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/* Returns the pointer to the string and writes the its size in *dim */
+/* Reads a string from stdin and returns a pointer,
+ * Stores the string length in dim
+ */
 char *read_text(int *dim)
 {
 	int size = 2, i = 0;
@@ -28,6 +30,8 @@ char *read_text(int *dim)
 int main() {
     int n, m, *LSP, j = 0;
     char *text, *pattern;
+
+	printf("Knuth-Morris-Pratt algorithm - Pattern matching\n");
 
     printf("Insert text: ");
     text = read_text(&n);

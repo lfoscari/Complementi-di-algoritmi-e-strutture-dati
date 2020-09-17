@@ -4,6 +4,8 @@ L'algoritmo di Rabin-Karp utilizzava l'hashing per risparmiare sui tempi di matc
 ## LSP
 Questa struttura dati ci permette di rispondere alla domanda: se abbiamo fatto il matching del prefisso $s$ del pattern fino al carattere in posizione $i$, qual è la lunghezza del suffisso $t$ di $s$ tale che è anche prefisso di $s$?
 
+Sapendo che $P[1..i]$ è prefisso di $T[k..i]$, voglio trovare il più lungo prefisso di $P[1..i]$ che è suffisso di $T[k..i]$.
+
 Ad esempio se ho il testo `aaaa...` e il pattern `aaab` e inizio a fare matching mi fermerò alla posizione $i = 3$ nel testo e alla posizione $j = 3$ nel pattern. Ma come si può vedere dal testo questa ha 4 `a`, quindi posso shiftare il mio match a sinistra di 1 e riprendere da lì, non dovendo ricontrollare le ultime 3 `a`.
 
 Per sapere però _quanto posso salvare_ del matching fallito devo construire una tabella dei suffissi-prefissi più lunghi, che ad ogni lettera del pattern associa l'indice del più lungo suffisso che è prefisso del pattern.
